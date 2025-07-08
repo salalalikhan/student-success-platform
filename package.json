@@ -1,0 +1,54 @@
+{
+  "name": "student-profile-challenge",
+  "version": "1.0.0",
+  "description": "A starting CLAUDE.md, requirements.md, and tech-stack.md for the student profile coding challenge.",
+  "main": "backend/server.js",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "nodemon backend/server.js",
+    "prod": "NODE_ENV=production node backend/server.js",
+    "build": "cd frontend && npm run build",
+    "build-prod": "cd frontend && npm run build && npm run start",
+    "install-frontend": "cd frontend && npm install",
+    "install-all": "npm install && npm run install-frontend",
+    "setup-db": "mysql -u root -p < database/setup.sql",
+    "deploy": "npm run install-all && npm run build && npm run setup-db",
+    "health-check": "curl -f http://localhost:3001/api/health || exit 1",
+    "logs": "tail -f logs/app.log",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://git.kineticseas.com/AIMastersCommunity/student-profile-challenge"
+  },
+  "keywords": [
+    "student",
+    "profile",
+    "education",
+    "react",
+    "express",
+    "mariadb"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.21.2",
+    "express-rate-limit": "^7.1.5",
+    "express-session": "^1.18.1",
+    "helmet": "^7.1.0",
+    "mammoth": "^1.6.0",
+    "mariadb": "^3.4.4",
+    "multer": "^2.0.1",
+    "pdf-parse": "^1.1.1",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.0"
+  }
+}

@@ -1,0 +1,1435 @@
+
+> frontend@0.1.0 start
+> react-scripts start
+
+(node:43872) [DEP_WEBPACK_DEV_SERVER_ON_AFTER_SETUP_MIDDLEWARE] DeprecationWarning: 'onAfterSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+(Use `node --trace-deprecation ...` to show where the warning was created)
+(node:43872) [DEP_WEBPACK_DEV_SERVER_ON_BEFORE_SETUP_MIDDLEWARE] DeprecationWarning: 'onBeforeSetupMiddleware' option is deprecated. Please use the 'setupMiddlewares' option.
+Starting the development server...
+
+Compiled successfully!
+
+You can now view frontend in the browser.
+
+  Local:            http://localhost:3000
+  On Your Network:  http://192.168.2.73:3000
+
+Note that the development build is not optimized.
+To create a production build, use npm run build.
+
+webpack compiled successfully
+(node:43872) [DEP0060] DeprecationWarning: The `util._extend` API is deprecated. Please use Object.assign() instead.
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.js
+  Line 12:8:  'StudentsPage' is defined but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.js
+  Line 12:8:  'StudentsPage' is defined but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.js
+  Line 66:18:  'DashboardPage' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/App.js
+  Line 11:8:  'SimpleDashboard' is defined but never used  no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+ERROR in [eslint] 
+src/App.js
+  Line 66:18:  'DashboardPage' is not defined  react/jsx-no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/App.js
+  Line 13:8:  'SurveysPage' is defined but never used    no-unused-vars
+  Line 14:8:  'AnalyticsPage' is defined but never used  no-unused-vars
+  Line 15:8:  'SettingsPage' is defined but never used   no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/App.js
+  Line 13:8:  'SurveysPage' is defined but never used    no-unused-vars
+  Line 14:8:  'AnalyticsPage' is defined but never used  no-unused-vars
+  Line 15:8:  'SettingsPage' is defined but never used   no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.js
+  Line 131:29:  'theme' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/App.js
+  Line 8:10:  'ThemeModeProvider' is defined but never used     no-unused-vars
+  Line 8:29:  'useThemeMode' is defined but never used          no-unused-vars
+  Line 9:10:  'NotificationProvider' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+ERROR in [eslint] 
+src/App.js
+  Line 131:29:  'theme' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.js
+Syntax error: Unexpected token (133:2) (133:2)
+WARNING in [eslint] 
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+ERROR in ./src/App.js
+Module build failed (from ./node_modules/babel-loader/lib/index.js):
+SyntaxError: /Users/salalalikhan/Documents/Projects/student-success-platform /frontend/src/App.js: Unexpected token (133:2)
+
+  131 |
+  132 | function App() {
+> 133 |   return (
+      |   ^
+  134 |     <QueryClientProvider client={queryClient}>
+  135 |       <ThemeProvider theme={theme}>
+  136 |         <CssBaseline />
+    at constructor (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:367:19)
+    at FlowParserMixin.raise (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:6627:19)
+    at FlowParserMixin.unexpected (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:6647:16)
+    at FlowParserMixin.parseExprAtom (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11442:16)
+    at FlowParserMixin.parseExprAtom (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+    at FlowParserMixin.parseUpdate (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10894:61)
+    at FlowParserMixin.parseExprOps (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10779:23)
+    at /Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10775:39
+    at FlowParserMixin.allowInAnd (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:12427:12)
+    at FlowParserMixin.parseExpression (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10775:17)
+    at FlowParserMixin.jsxParseExpressionContainer (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:4662:31)
+    at FlowParserMixin.jsxParseElementAt (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:4741:36)
+    at FlowParserMixin.jsxParseElement (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:4779:17)
+    at FlowParserMixin.parseExprAtom (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:4789:19)
+    at FlowParserMixin.parseExprSubscripts (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+    at FlowParserMixin.parseUpdate (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10894:61)
+    at FlowParserMixin.parseExprOps (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10826:21)
+    at /Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:3528:39
+    at FlowParserMixin.tryParse (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:6935:20)
+    at FlowParserMixin.parseMaybeAssign (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:3528:18)
+    at /Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10795:39
+    at FlowParserMixin.allowInAnd (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:12427:12)
+    at FlowParserMixin.parseMaybeAssignAllowIn (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10795:17)
+    at FlowParserMixin.parseMaybeAssignAllowInOrVoidPattern (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:12494:17)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11674:28)
+    at FlowParserMixin.parseParenAndDistinguishExpression (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:3621:18)
+    at FlowParserMixin.parseExprAtom (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11326:23)
+    at FlowParserMixin.parseExprAtom (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:4794:20)
+    at FlowParserMixin.parseExprSubscripts (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11076:23)
+    at FlowParserMixin.parseUpdate (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11061:21)
+    at FlowParserMixin.parseMaybeUnary (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:11041:23)
+    at FlowParserMixin.parseMaybeUnaryOrPrivate (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10894:61)
+    at FlowParserMixin.parseExprOps (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10899:23)
+    at FlowParserMixin.parseMaybeConditional (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10876:23)
+    at FlowParserMixin.parseMaybeAssign (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10826:21)
+    at FlowParserMixin.parseMaybeAssign (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:3579:18)
+    at FlowParserMixin.parseExpressionBase (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10779:23)
+    at /Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:10775:39
+    at FlowParserMixin.allowInAnd (/Users/salalalikhan/Documents/Projects/student-success-platform /frontend/node_modules/@babel/parser/lib/index.js:12422:16)
+
+ERROR in [eslint] 
+src/App.js
+  Line 133:2:  Parsing error: Unexpected token (133:2)
+
+webpack compiled with 2 errors and 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/App.js
+  Line 136:29:  'theme' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/App.js
+  Line 8:10:  'ThemeModeProvider' is defined but never used     no-unused-vars
+  Line 9:10:  'NotificationProvider' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+ERROR in [eslint] 
+src/App.js
+  Line 136:29:  'theme' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used             no-unused-vars
+  Line 21:3:   'Button' is defined but never used            no-unused-vars
+  Line 22:3:   'Chip' is defined but never used              no-unused-vars
+  Line 23:3:   'Stack' is defined but never used             no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used     no-unused-vars
+  Line 37:3:   'Delete' is defined but never used            no-unused-vars
+  Line 38:3:   'Circle' is defined but never used            no-unused-vars
+  Line 42:10:  'useNotifications' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used             no-unused-vars
+  Line 21:3:   'Button' is defined but never used            no-unused-vars
+  Line 22:3:   'Chip' is defined but never used              no-unused-vars
+  Line 23:3:   'Stack' is defined but never used             no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used     no-unused-vars
+  Line 37:3:   'Delete' is defined but never used            no-unused-vars
+  Line 38:3:   'Circle' is defined but never used            no-unused-vars
+  Line 42:10:  'useNotifications' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used                             no-unused-vars
+  Line 21:3:   'Button' is defined but never used                            no-unused-vars
+  Line 22:3:   'Chip' is defined but never used                              no-unused-vars
+  Line 23:3:   'Stack' is defined but never used                             no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used                     no-unused-vars
+  Line 37:3:   'Delete' is defined but never used                            no-unused-vars
+  Line 38:3:   'Circle' is defined but never used                            no-unused-vars
+  Line 57:10:  'notificationAnchorEl' is assigned a value but never used     no-unused-vars
+  Line 57:32:  'setNotificationAnchorEl' is assigned a value but never used  no-unused-vars
+  Line 59:11:  'notifications' is assigned a value but never used            no-unused-vars
+  Line 59:26:  'unreadCount' is assigned a value but never used              no-unused-vars
+  Line 59:39:  'markAsRead' is assigned a value but never used               no-unused-vars
+  Line 59:51:  'markAllAsRead' is assigned a value but never used            no-unused-vars
+  Line 59:66:  'deleteNotification' is assigned a value but never used       no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used                             no-unused-vars
+  Line 21:3:   'Button' is defined but never used                            no-unused-vars
+  Line 22:3:   'Chip' is defined but never used                              no-unused-vars
+  Line 23:3:   'Stack' is defined but never used                             no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used                     no-unused-vars
+  Line 37:3:   'Delete' is defined but never used                            no-unused-vars
+  Line 38:3:   'Circle' is defined but never used                            no-unused-vars
+  Line 57:10:  'notificationAnchorEl' is assigned a value but never used     no-unused-vars
+  Line 57:32:  'setNotificationAnchorEl' is assigned a value but never used  no-unused-vars
+  Line 59:11:  'notifications' is assigned a value but never used            no-unused-vars
+  Line 59:26:  'unreadCount' is assigned a value but never used              no-unused-vars
+  Line 59:39:  'markAsRead' is assigned a value but never used               no-unused-vars
+  Line 59:51:  'markAllAsRead' is assigned a value but never used            no-unused-vars
+  Line 59:66:  'deleteNotification' is assigned a value but never used       no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used                                 no-unused-vars
+  Line 21:3:   'Button' is defined but never used                                no-unused-vars
+  Line 22:3:   'Chip' is defined but never used                                  no-unused-vars
+  Line 23:3:   'Stack' is defined but never used                                 no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used                         no-unused-vars
+  Line 37:3:   'Delete' is defined but never used                                no-unused-vars
+  Line 38:3:   'Circle' is defined but never used                                no-unused-vars
+  Line 57:10:  'notificationAnchorEl' is assigned a value but never used         no-unused-vars
+  Line 59:11:  'notifications' is assigned a value but never used                no-unused-vars
+  Line 59:26:  'unreadCount' is assigned a value but never used                  no-unused-vars
+  Line 59:51:  'markAllAsRead' is assigned a value but never used                no-unused-vars
+  Line 59:66:  'deleteNotification' is assigned a value but never used           no-unused-vars
+  Line 85:9:   'handleNotificationMenuOpen' is assigned a value but never used   no-unused-vars
+  Line 89:9:   'handleNotificationMenuClose' is assigned a value but never used  no-unused-vars
+  Line 93:9:   'handleNotificationClick' is assigned a value but never used      no-unused-vars
+  Line 99:9:   'getNotificationTypeColor' is assigned a value but never used     no-unused-vars
+  Line 108:9:  'formatTimestamp' is assigned a value but never used              no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used                                 no-unused-vars
+  Line 21:3:   'Button' is defined but never used                                no-unused-vars
+  Line 22:3:   'Chip' is defined but never used                                  no-unused-vars
+  Line 23:3:   'Stack' is defined but never used                                 no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used                         no-unused-vars
+  Line 37:3:   'Delete' is defined but never used                                no-unused-vars
+  Line 38:3:   'Circle' is defined but never used                                no-unused-vars
+  Line 57:10:  'notificationAnchorEl' is assigned a value but never used         no-unused-vars
+  Line 59:11:  'notifications' is assigned a value but never used                no-unused-vars
+  Line 59:26:  'unreadCount' is assigned a value but never used                  no-unused-vars
+  Line 59:51:  'markAllAsRead' is assigned a value but never used                no-unused-vars
+  Line 59:66:  'deleteNotification' is assigned a value but never used           no-unused-vars
+  Line 85:9:   'handleNotificationMenuOpen' is assigned a value but never used   no-unused-vars
+  Line 89:9:   'handleNotificationMenuClose' is assigned a value but never used  no-unused-vars
+  Line 93:9:   'handleNotificationClick' is assigned a value but never used      no-unused-vars
+  Line 99:9:   'getNotificationTypeColor' is assigned a value but never used     no-unused-vars
+  Line 108:9:  'formatTimestamp' is assigned a value but never used              no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used                                 no-unused-vars
+  Line 21:3:   'Button' is defined but never used                                no-unused-vars
+  Line 22:3:   'Chip' is defined but never used                                  no-unused-vars
+  Line 23:3:   'Stack' is defined but never used                                 no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used                         no-unused-vars
+  Line 37:3:   'Delete' is defined but never used                                no-unused-vars
+  Line 38:3:   'Circle' is defined but never used                                no-unused-vars
+  Line 57:10:  'notificationAnchorEl' is assigned a value but never used         no-unused-vars
+  Line 59:11:  'notifications' is assigned a value but never used                no-unused-vars
+  Line 59:51:  'markAllAsRead' is assigned a value but never used                no-unused-vars
+  Line 59:66:  'deleteNotification' is assigned a value but never used           no-unused-vars
+  Line 89:9:   'handleNotificationMenuClose' is assigned a value but never used  no-unused-vars
+  Line 93:9:   'handleNotificationClick' is assigned a value but never used      no-unused-vars
+  Line 99:9:   'getNotificationTypeColor' is assigned a value but never used     no-unused-vars
+  Line 108:9:  'formatTimestamp' is assigned a value but never used              no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:   'Paper' is defined but never used                                 no-unused-vars
+  Line 21:3:   'Button' is defined but never used                                no-unused-vars
+  Line 22:3:   'Chip' is defined but never used                                  no-unused-vars
+  Line 23:3:   'Stack' is defined but never used                                 no-unused-vars
+  Line 36:3:   'MarkEmailRead' is defined but never used                         no-unused-vars
+  Line 37:3:   'Delete' is defined but never used                                no-unused-vars
+  Line 38:3:   'Circle' is defined but never used                                no-unused-vars
+  Line 57:10:  'notificationAnchorEl' is assigned a value but never used         no-unused-vars
+  Line 59:11:  'notifications' is assigned a value but never used                no-unused-vars
+  Line 59:51:  'markAllAsRead' is assigned a value but never used                no-unused-vars
+  Line 59:66:  'deleteNotification' is assigned a value but never used           no-unused-vars
+  Line 89:9:   'handleNotificationMenuClose' is assigned a value but never used  no-unused-vars
+  Line 93:9:   'handleNotificationClick' is assigned a value but never used      no-unused-vars
+  Line 99:9:   'getNotificationTypeColor' is assigned a value but never used     no-unused-vars
+  Line 108:9:  'formatTimestamp' is assigned a value but never used              no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+  Line 65:10:  'useThemeMode' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+  Line 65:10:  'useThemeMode' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Failed to compile.
+
+[eslint] 
+src/pages/settings/SettingsPage.jsx
+  Line 435:20:  'theme' is not defined     no-undef
+  Line 436:30:  'setTheme' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:    'InputLabel' is defined but never used           no-unused-vars
+  Line 23:3:    'Tab' is defined but never used                  no-unused-vars
+  Line 24:3:    'Tabs' is defined but never used                 no-unused-vars
+  Line 43:3:    'Language' is defined but never used             no-unused-vars
+  Line 45:3:    'CloudDownload' is defined but never used        no-unused-vars
+  Line 49:3:    'VolumeUp' is defined but never used             no-unused-vars
+  Line 59:3:    'Key' is defined but never used                  no-unused-vars
+  Line 62:15:   'SettingsIcon' is defined but never used         no-unused-vars
+  Line 420:11:  'mode' is assigned a value but never used        no-unused-vars
+  Line 420:17:  'toggleMode' is assigned a value but never used  no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+ERROR in [eslint] 
+src/pages/settings/SettingsPage.jsx
+  Line 435:20:  'theme' is not defined     no-undef
+  Line 436:30:  'setTheme' is not defined  no-undef
+
+Search for the keywords to learn more about each error.
+
+webpack compiled with 1 error and 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:    'TrendingUp' is defined but never used                 no-unused-vars
+  Line 169:10:  'addDialogOpen' is assigned a value but never used     no-unused-vars
+  Line 169:25:  'setAddDialogOpen' is assigned a value but never used  no-unused-vars
+  Line 170:10:  'newStudent' is assigned a value but never used        no-unused-vars
+  Line 170:22:  'setNewStudent' is assigned a value but never used     no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:    'TrendingUp' is defined but never used                 no-unused-vars
+  Line 169:10:  'addDialogOpen' is assigned a value but never used     no-unused-vars
+  Line 169:25:  'setAddDialogOpen' is assigned a value but never used  no-unused-vars
+  Line 170:10:  'newStudent' is assigned a value but never used        no-unused-vars
+  Line 170:22:  'setNewStudent' is assigned a value but never used     no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:    'TrendingUp' is defined but never used                       no-unused-vars
+  Line 169:10:  'addDialogOpen' is assigned a value but never used           no-unused-vars
+  Line 213:9:   'handleAddStudent' is assigned a value but never used        no-unused-vars
+  Line 217:9:   'handleSaveNewStudent' is assigned a value but never used    no-unused-vars
+  Line 234:9:   'handleNewStudentChange' is assigned a value but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:    'TrendingUp' is defined but never used                       no-unused-vars
+  Line 169:10:  'addDialogOpen' is assigned a value but never used           no-unused-vars
+  Line 213:9:   'handleAddStudent' is assigned a value but never used        no-unused-vars
+  Line 217:9:   'handleSaveNewStudent' is assigned a value but never used    no-unused-vars
+  Line 234:9:   'handleNewStudentChange' is assigned a value but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:    'TrendingUp' is defined but never used                       no-unused-vars
+  Line 169:10:  'addDialogOpen' is assigned a value but never used           no-unused-vars
+  Line 217:9:   'handleSaveNewStudent' is assigned a value but never used    no-unused-vars
+  Line 234:9:   'handleNewStudentChange' is assigned a value but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:    'TrendingUp' is defined but never used                       no-unused-vars
+  Line 169:10:  'addDialogOpen' is assigned a value but never used           no-unused-vars
+  Line 217:9:   'handleSaveNewStudent' is assigned a value but never used    no-unused-vars
+  Line 234:9:   'handleNewStudentChange' is assigned a value but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 43:3:   'Language' is defined but never used       no-unused-vars
+  Line 45:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 49:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 59:3:   'Key' is defined but never used            no-unused-vars
+  Line 62:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
