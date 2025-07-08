@@ -11,7 +11,7 @@ export const useThemeMode = () => {
   return context;
 };
 
-export const createAppTheme = (mode) => createTheme({
+export const createAppTheme = (mode, fontSize = 14) => createTheme({
   palette: {
     mode,
     ...(mode === 'light'
@@ -64,42 +64,43 @@ export const createAppTheme = (mode) => createTheme({
   },
   typography: {
     fontFamily: '"Inter", "Roboto", "Helvetica", "Arial", sans-serif',
+    fontSize: fontSize,
     h1: {
-      fontSize: '2.5rem',
+      fontSize: `${fontSize * 2.5 / 14}rem`,
       fontWeight: 600,
       lineHeight: 1.2,
     },
     h2: {
-      fontSize: '2rem',
+      fontSize: `${fontSize * 2 / 14}rem`,
       fontWeight: 600,
       lineHeight: 1.3,
     },
     h3: {
-      fontSize: '1.75rem',
+      fontSize: `${fontSize * 1.75 / 14}rem`,
       fontWeight: 600,
       lineHeight: 1.4,
     },
     h4: {
-      fontSize: '1.5rem',
+      fontSize: `${fontSize * 1.5 / 14}rem`,
       fontWeight: 500,
       lineHeight: 1.4,
     },
     h5: {
-      fontSize: '1.25rem',
+      fontSize: `${fontSize * 1.25 / 14}rem`,
       fontWeight: 500,
       lineHeight: 1.5,
     },
     h6: {
-      fontSize: '1rem',
+      fontSize: `${fontSize / 14}rem`,
       fontWeight: 500,
       lineHeight: 1.5,
     },
     body1: {
-      fontSize: '1rem',
+      fontSize: `${fontSize / 14}rem`,
       lineHeight: 1.6,
     },
     body2: {
-      fontSize: '0.875rem',
+      fontSize: `${fontSize * 0.875 / 14}rem`,
       lineHeight: 1.6,
     },
   },
@@ -169,20 +170,56 @@ export const ThemeModeProvider = ({ children }) => {
     return savedMode || 'light';
   });
 
+  const [fontSize, setFontSize] = useState(() => {
+    // Get font size from localStorage or default to 14
+    const savedFontSize = localStorage.getItem('fontSize');
+    return savedFontSize ? parseInt(savedFontSize) : 14;
+  });
+
+  const [language, setLanguage] = useState(() => {
+    // Get language from localStorage or default to 'en'
+    const savedLanguage = localStorage.getItem('language');
+    return savedLanguage || 'en';
+  });
+
   useEffect(() => {
     // Save mode to localStorage whenever it changes
     localStorage.setItem('themeMode', mode);
   }, [mode]);
 
+  useEffect(() => {
+    // Save font size to localStorage whenever it changes
+    localStorage.setItem('fontSize', fontSize.toString());
+    // Apply font size to document root
+    document.documentElement.style.fontSize = `${fontSize}px`;
+  }, [fontSize]);
+
+  useEffect(() => {
+    // Save language to localStorage whenever it changes
+    localStorage.setItem('language', language);
+  }, [language]);
+
   const toggleMode = () => {
     setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
   };
 
-  const theme = createAppTheme(mode);
+  const updateFontSize = (newSize) => {
+    setFontSize(newSize);
+  };
+
+  const updateLanguage = (newLanguage) => {
+    setLanguage(newLanguage);
+  };
+
+  const theme = createAppTheme(mode, fontSize);
 
   const value = {
     mode,
+    fontSize,
+    language,
     toggleMode,
+    updateFontSize,
+    updateLanguage,
     theme,
   };
 

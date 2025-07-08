@@ -34,6 +34,7 @@ import {
   RadioGroup,
   Radio,
   Slider,
+  Snackbar,
 } from '@mui/material';
 import {
   Person,
@@ -189,6 +190,38 @@ const ProfileSettings = ({ user }) => {
 const SecuritySettings = () => {
   const [showPassword, setShowPassword] = useState(false);
   const [passwordDialog, setPasswordDialog] = useState(false);
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+  const [twoFactorEnabled, setTwoFactorEnabled] = useState(() => {
+    // Get 2FA status from localStorage or default to false
+    const saved2FA = localStorage.getItem('twoFactorEnabled');
+    return saved2FA === 'true';
+  });
+  const [profileVisibility, setProfileVisibility] = useState(() => {
+    // Get profile visibility from localStorage or default to 'public'
+    const savedVisibility = localStorage.getItem('profileVisibility');
+    return savedVisibility || 'public';
+  });
+
+  const handleTwoFactorToggle = () => {
+    const newValue = !twoFactorEnabled;
+    setTwoFactorEnabled(newValue);
+    localStorage.setItem('twoFactorEnabled', newValue.toString());
+    setToastMessage(`Two-factor authentication ${newValue ? 'enabled' : 'disabled'}`);
+    setShowToast(true);
+    // Here you would typically call an API to enable/disable 2FA
+    console.log('Two-factor authentication:', newValue ? 'enabled' : 'disabled');
+  };
+
+  const handleProfileVisibilityChange = (event) => {
+    const newValue = event.target.value;
+    setProfileVisibility(newValue);
+    localStorage.setItem('profileVisibility', newValue);
+    setToastMessage(`Profile visibility changed to ${newValue}`);
+    setShowToast(true);
+    // Here you would typically call an API to update profile visibility
+    console.log('Profile visibility changed to:', newValue);
+  };
 
   return (
     <>
@@ -221,7 +254,10 @@ const SecuritySettings = () => {
               secondary="Add an extra layer of security to your account"
             />
             <ListItemSecondaryAction>
-              <Switch />
+              <Switch 
+                checked={twoFactorEnabled}
+                onChange={handleTwoFactorToggle}
+              />
             </ListItemSecondaryAction>
           </ListItem>
           <Divider />
@@ -235,7 +271,11 @@ const SecuritySettings = () => {
             />
             <ListItemSecondaryAction>
               <FormControl size="small">
-                <Select value="public" size="small">
+                <Select 
+                  value={profileVisibility} 
+                  size="small"
+                  onChange={handleProfileVisibilityChange}
+                >
                   <MenuItem value="public">Public</MenuItem>
                   <MenuItem value="private">Private</MenuItem>
                   <MenuItem value="contacts">Contacts Only</MenuItem>
@@ -279,6 +319,13 @@ const SecuritySettings = () => {
           <Button variant="contained">Update Password</Button>
         </DialogActions>
       </Dialog>
+      
+      <Snackbar
+        open={showToast}
+        autoHideDuration={3000}
+        onClose={() => setShowToast(false)}
+        message={toastMessage}
+      />
     </>
   );
 };
@@ -417,9 +464,35 @@ const NotificationSettings = () => {
 };
 
 const AppearanceSettings = () => {
-  const { mode, toggleMode } = useThemeMode();
-  const [language, setLanguage] = useState('en');
-  const [fontSize, setFontSize] = useState(14);
+  const { mode, toggleMode, fontSize, updateFontSize, language, updateLanguage } = useThemeMode();
+  const [showToast, setShowToast] = useState(false);
+  const [toastMessage, setToastMessage] = useState('');
+
+  const handleFontSizeChange = (event, value) => {
+    updateFontSize(value);
+    setToastMessage(`Font size changed to ${value}px`);
+    setShowToast(true);
+  };
+
+  const handleLanguageChange = (event) => {
+    updateLanguage(event.target.value);
+    const languageNames = {
+      'en': 'English',
+      'es': 'Spanish',
+      'fr': 'French',
+      'de': 'German'
+    };
+    setToastMessage(`Language changed to ${languageNames[event.target.value]}`);
+    setShowToast(true);
+  };
+
+  const handleModeChange = (event) => {
+    if (event.target.value !== mode) {
+      toggleMode();
+      setToastMessage(`Theme changed to ${event.target.value} mode`);
+      setShowToast(true);
+    }
+  };
 
   return (
     <SettingCard
@@ -433,11 +506,7 @@ const AppearanceSettings = () => {
           </Typography>
           <RadioGroup
             value={mode}
-            onChange={(e) => {
-              if (e.target.value !== mode) {
-                toggleMode();
-              }
-            }}
+            onChange={handleModeChange}
           >
             <FormControlLabel
               value="light"
@@ -469,13 +538,16 @@ const AppearanceSettings = () => {
           <FormControl fullWidth>
             <Select
               value={language}
-              onChange={(e) => setLanguage(e.target.value)}
+              onChange={handleLanguageChange}
             >
-              <MenuItem value="en">English</MenuItem>
-              <MenuItem value="es">Spanish</MenuItem>
-              <MenuItem value="fr">French</MenuItem>
-              <MenuItem value="de">German</MenuItem>
+              <MenuItem value="en">🇺🇸 English</MenuItem>
+              <MenuItem value="es">🇪🇸 Español</MenuItem>
+              <MenuItem value="fr">🇫🇷 Français</MenuItem>
+              <MenuItem value="de">🇩🇪 Deutsch</MenuItem>
             </Select>
+            <Typography variant="caption" color="text.secondary" sx={{ mt: 1 }}>
+              Selected: {language === 'en' ? '🇺🇸 English' : language === 'es' ? '🇪🇸 Español' : language === 'fr' ? '🇫🇷 Français' : '🇩🇪 Deutsch'}
+            </Typography>
           </FormControl>
 
           <Typography variant="subtitle2" sx={{ mt: 3, mb: 1 }}>
@@ -483,7 +555,7 @@ const AppearanceSettings = () => {
           </Typography>
           <Slider
             value={fontSize}
-            onChange={(e, value) => setFontSize(value)}
+            onChange={handleFontSizeChange}
             min={12}
             max={18}
             step={1}
@@ -493,6 +565,13 @@ const AppearanceSettings = () => {
           />
         </Grid>
       </Grid>
+      
+      <Snackbar
+        open={showToast}
+        autoHideDuration={3000}
+        onClose={() => setShowToast(false)}
+        message={toastMessage}
+      />
     </SettingCard>
   );
 };
