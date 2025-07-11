@@ -8,7 +8,7 @@ const crypto = require('crypto');
 const pdfParse = require('pdf-parse');
 const mammoth = require('mammoth');
 
-const app = express();
+const { validateDescopeSession, optionalDescopeSession } = require('./middleware/descope-auth');const app = express();
 const PORT = process.env.PORT || 3001;
 
 // Minimal middleware setup as per simplified tech stack
@@ -1621,6 +1621,9 @@ function convertToCSV(data) {
   return [csvHeaders, ...csvRows].join('\n');
 }
 
+// Add Descope authentication routes
+const authRoutes = require('./routes/auth');
+app.use('/api/auth-descope', authRoutes);
 // Catch-all handler for React app
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));

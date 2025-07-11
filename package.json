@@ -35,6 +35,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@descope/node-sdk": "^1.7.8",
     "bcrypt": "^6.0.0",
     "bcryptjs": "^3.0.2",
     "cors": "^2.8.5",
