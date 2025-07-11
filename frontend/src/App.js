@@ -9,6 +9,7 @@ import { ThemeModeProvider, useThemeMode } from './contexts/ThemeContext';
 import { NotificationProvider } from './contexts/NotificationContext';
 import DashboardLayout from './components/layout/DashboardLayout';
 import LoginPage from './pages/auth/LoginPage';
+import SignupPage from './pages/auth/SignupPage';
 import SimpleDashboard from './pages/dashboard/SimpleDashboard';
 import StudentsPage from './pages/students/StudentsPage';
 import SurveysPage from './pages/surveys/SurveysPage';
@@ -61,6 +62,15 @@ function AppContent() {
             element={
               <PublicRoute>
                 <LoginPage />
+              </PublicRoute>
+            }
+          />
+          
+          <Route
+            path="/signup"
+            element={
+              <PublicRoute>
+                <SignupPage />
               </PublicRoute>
             }
           />

@@ -12,16 +12,21 @@ import {
   Grid,
   Paper,
   Stack,
+  Link,
 } from '@mui/material';
 import { SchoolTwoTone, LoginRounded } from '@mui/icons-material';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 
 const LoginPage = () => {
+  const location = useLocation();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const { login } = useAuth();
+  
+  const successMessage = location.state?.message;
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -98,6 +103,12 @@ const LoginPage = () => {
                   </Typography>
                 </Box>
 
+                {successMessage && (
+                  <Alert severity="success" sx={{ mb: 3 }}>
+                    {successMessage}
+                  </Alert>
+                )}
+
                 {error && (
                   <Alert severity="error" sx={{ mb: 3 }}>
                     {error}
@@ -161,6 +172,16 @@ const LoginPage = () => {
                     </Button>
                   </Stack>
                 </Paper>
+
+                {/* Sign Up Link */}
+                <Box sx={{ mt: 3, textAlign: 'center' }}>
+                  <Typography variant="body2" color="text.secondary">
+                    Don't have an account?{' '}
+                    <Link component={RouterLink} to="/signup" underline="hover">
+                      Sign Up
+                    </Link>
+                  </Typography>
+                </Box>
               </CardContent>
             </Card>
           </Grid>

@@ -25,6 +25,7 @@ import {
   PersonAdd,
   AssignmentTurnedIn,
 } from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const StatCard = ({ title, value, icon, color, change }) => (
@@ -53,6 +54,7 @@ const StatCard = ({ title, value, icon, color, change }) => (
 );
 
 const SimpleDashboard = () => {
+  const navigate = useNavigate();
   const [stats, setStats] = useState({
     totalStudents: 0,
     activeSurveys: 0,
@@ -65,6 +67,19 @@ const SimpleDashboard = () => {
   useEffect(() => {
     fetchDashboardData();
   }, []);
+
+  // Quick action handlers
+  const handleAddStudent = () => {
+    navigate('/students');
+  };
+
+  const handleCreateSurvey = () => {
+    navigate('/surveys');
+  };
+
+  const handleViewAnalytics = () => {
+    navigate('/analytics');
+  };
 
   const fetchDashboardData = async () => {
     try {
@@ -204,7 +219,10 @@ const SimpleDashboard = () => {
                 Quick Actions
               </Typography>
               <Stack spacing={2}>
-                <Paper sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', '&:hover': { bgcolor: 'grey.50' } }}>
+                <Paper 
+                  onClick={handleAddStudent}
+                  sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', '&:hover': { bgcolor: 'grey.50' } }}
+                >
                   <Avatar sx={{ bgcolor: 'success.main' }}>
                     <PersonAdd />
                   </Avatar>
@@ -218,7 +236,10 @@ const SimpleDashboard = () => {
                   </Box>
                 </Paper>
                 
-                <Paper sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', '&:hover': { bgcolor: 'grey.50' } }}>
+                <Paper 
+                  onClick={handleCreateSurvey}
+                  sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', '&:hover': { bgcolor: 'grey.50' } }}
+                >
                   <Avatar sx={{ bgcolor: 'info.main' }}>
                     <AssignmentTurnedIn />
                   </Avatar>
@@ -232,7 +253,10 @@ const SimpleDashboard = () => {
                   </Box>
                 </Paper>
 
-                <Paper sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', '&:hover': { bgcolor: 'grey.50' } }}>
+                <Paper 
+                  onClick={handleViewAnalytics}
+                  sx={{ p: 2, display: 'flex', alignItems: 'center', gap: 2, cursor: 'pointer', '&:hover': { bgcolor: 'grey.50' } }}
+                >
                   <Avatar sx={{ bgcolor: 'warning.main' }}>
                     <TrendingUp />
                   </Avatar>

@@ -1916,3 +1916,81 @@ src/pages/surveys/SurveysPage.jsx
   Line 40:3:  'FilterList' is defined but never used  no-unused-vars
 
 webpack compiled with 1 warning
+Compiling...
+Compiled with warnings.
+
+[eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 44:3:   'Language' is defined but never used       no-unused-vars
+  Line 46:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 50:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 60:3:   'Key' is defined but never used            no-unused-vars
+  Line 63:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+Search for the keywords to learn more about each warning.
+To ignore, add // eslint-disable-next-line to the line before.
+
+WARNING in [eslint] 
+src/components/layout/DashboardLayout.jsx
+  Line 20:3:  'Paper' is defined but never used  no-unused-vars
+  Line 23:3:  'Stack' is defined but never used  no-unused-vars
+
+src/pages/analytics/AnalyticsPage.jsx
+  Line 13:3:  'IconButton' is defined but never used        no-unused-vars
+  Line 31:3:  'Divider' is defined but never used           no-unused-vars
+  Line 45:3:  'WorkspacePremium' is defined but never used  no-unused-vars
+  Line 46:3:  'Psychology' is defined but never used        no-unused-vars
+  Line 47:3:  'Group' is defined but never used             no-unused-vars
+
+src/pages/dashboard/DashboardPage.jsx
+  Line 87:10:  'surveys' is assigned a value but never used  no-unused-vars
+
+src/pages/settings/SettingsPage.jsx
+  Line 14:3:   'InputLabel' is defined but never used     no-unused-vars
+  Line 23:3:   'Tab' is defined but never used            no-unused-vars
+  Line 24:3:   'Tabs' is defined but never used           no-unused-vars
+  Line 44:3:   'Language' is defined but never used       no-unused-vars
+  Line 46:3:   'CloudDownload' is defined but never used  no-unused-vars
+  Line 50:3:   'VolumeUp' is defined but never used       no-unused-vars
+  Line 60:3:   'Key' is defined but never used            no-unused-vars
+  Line 63:15:  'SettingsIcon' is defined but never used   no-unused-vars
+
+src/pages/students/StudentsPage.jsx
+  Line 31:3:  'TrendingUp' is defined but never used  no-unused-vars
+
+src/pages/surveys/SurveysPage.jsx
+  Line 40:3:  'FilterList' is defined but never used  no-unused-vars
+
+webpack compiled with 1 warning
+Proxy error: Could not proxy request /api/auth/check from localhost:3000 to http://localhost:3001.
+See https://nodejs.org/api/errors.html#errors_common_system_errors for more information (ECONNREFUSED).
+
+Proxy error: Could not proxy request /api/auth/login from localhost:3000 to http://localhost:3001.
+See https://nodejs.org/api/errors.html#errors_common_system_errors for more information (ECONNREFUSED).
+
+Proxy error: Could not proxy request /api/auth/login from localhost:3000 to http://localhost:3001.
+See https://nodejs.org/api/errors.html#errors_common_system_errors for more information (ECONNREFUSED).
+

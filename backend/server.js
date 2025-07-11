@@ -28,10 +28,33 @@ app.use(express.static(path.join(__dirname, '../frontend/build')));
 const pool = mariadb.createPool({
   host: process.env.DB_HOST || 'localhost',
   user: process.env.DB_USER || 'root',
-  password: process.env.DB_PASSWORD || 'secure_root_password_2025',
+  password: process.env.DB_PASSWORD || '',
   database: process.env.DB_NAME || 'student_profiles',
   connectionLimit: 5
 });
+
+// Helper function to convert BigInt to Number for JSON serialization
+function convertBigIntToNumber(obj) {
+  if (obj === null || obj === undefined) {
+    return obj;
+  }
+  if (typeof obj === "bigint") {
+    return Number(obj);
+  }
+  if (Array.isArray(obj)) {
+    return obj.map(convertBigIntToNumber);
+  }
+  if (typeof obj === "object") {
+    const result = {};
+    for (let key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        result[key] = convertBigIntToNumber(obj[key]);
+      }
+    }
+    return result;
+  }
+  return obj;
+}
 
 // File upload configuration (10MB limit as per challenge requirements)
 const upload = multer({
@@ -80,21 +103,41 @@ function convertBigIntToNumber(obj) {
   return obj;
 }
 
+// In-memory user storage (temporary solution until database is set up)
+let users = [
+  { id: 1, email: 'admin@test.com', password: 'admin123', role: 'teacher' },
+  { id: 2, email: 'user@test.com', password: 'user123', role: 'student' },
+  { id: 3, email: 'test@test.com', password: 'test123', role: 'student' }
+];
+
 // Authentication routes
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;
     
-    // Simple test credentials for demo
-    const testUsers = [
-      { id: 1, email: 'admin@test.com', password: 'admin123', role: 'admin' },
-      { id: 2, email: 'user@test.com', password: 'user123', role: 'user' },
-      { id: 3, email: 'test@test.com', password: 'test123', role: 'user' }
-    ];
+    if (!email || !password) {
+      return res.status(400).json({ error: 'Email and password are required' });
+    }
     
-    const user = testUsers.find(u => u.email === email && u.password === password);
+    // Find user in memory store
+    const user = users.find(u => u.email === email);
     
     if (!user) {
+      return res.status(401).json({ error: 'Invalid credentials' });
+    }
+    
+    // Check password (first check if it's hashed, then plain text for backward compatibility)
+    let isValidPassword = false;
+    
+    if (user.password.startsWith('$2b$')) {
+      // Password is hashed
+      isValidPassword = await bcrypt.compare(password, user.password);
+    } else {
+      // Plain text password (for demo users)
+      isValidPassword = password === user.password;
+    }
+    
+    if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
     
@@ -111,14 +154,89 @@ app.post('/api/auth/login', async (req, res) => {
   }
 });
 
-app.get('/api/auth/check', (req, res) => {
-  if (req.session.userId) {
-    res.json({ 
+// Signup route
+app.post('/api/auth/signup', async (req, res) => {
+  try {
+    const { email, password, confirmPassword, name, role = 'student' } = req.body;
+    
+    // Basic validation
+    if (!email || !password || !confirmPassword || !name) {
+      return res.status(400).json({ error: 'All fields are required' });
+    }
+    
+    if (password !== confirmPassword) {
+      return res.status(400).json({ error: 'Passwords do not match' });
+    }
+    
+    if (password.length < 6) {
+      return res.status(400).json({ error: 'Password must be at least 6 characters long' });
+    }
+    
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return res.status(400).json({ error: 'Invalid email format' });
+    }
+    
+    // Check if user already exists in memory store
+    const existingUser = users.find(u => u.email === email);
+    if (existingUser) {
+      return res.status(409).json({ error: 'User with this email already exists' });
+    }
+    
+    // Hash password
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+    
+    // Create new user in memory store
+    const newUser = {
+      id: users.length + 1,
+      email,
+      password: hashedPassword,
+      role,
+      name
+    };
+    
+    users.push(newUser);
+    
+    console.log('New user created:', { email, role, name });
+    
+    res.status(201).json({ 
+      message: 'Account created successfully',
       user: { 
-        id: req.session.userId, 
-        role: req.session.userRole 
-      } 
+        id: newUser.id, 
+        email: newUser.email, 
+        name: newUser.name,
+        role: newUser.role 
+      }
     });
+  } catch (error) {
+    console.error('Signup error:', error);
+    res.status(500).json({ error: 'Server error' });
+  }
+});
+
+app.get('/api/auth/check', async (req, res) => {
+  if (req.session.userId) {
+    try {
+      const user = users.find(u => u.id === req.session.userId);
+      
+      if (!user) {
+        req.session.destroy();
+        return res.status(401).json({ error: 'Not authenticated' });
+      }
+      
+      res.json({ 
+        user: { 
+          id: user.id, 
+          email: user.email,
+          role: user.role 
+        } 
+      });
+    } catch (error) {
+      console.error('Auth check error:', error);
+      res.status(500).json({ error: 'Server error' });
+    }
   } else {
     res.status(401).json({ error: 'Not authenticated' });
   }
@@ -132,6 +250,7 @@ app.post('/api/auth/logout', (req, res) => {
     res.json({ message: 'Logged out successfully' });
   });
 });
+
 
 // Student profile CRUD operations
 app.get('/api/students', requireAuth, async (req, res) => {

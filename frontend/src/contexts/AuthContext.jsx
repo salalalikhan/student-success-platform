@@ -43,6 +43,18 @@ export const AuthProvider = ({ children }) => {
     }
   };
 
+  const signup = async (userData) => {
+    try {
+      const response = await axios.post('/api/auth/signup', userData);
+      return { success: true, user: response.data.user };
+    } catch (error) {
+      return { 
+        success: false, 
+        error: error.response?.data?.error || 'Signup failed' 
+      };
+    }
+  };
+
   const logout = async () => {
     try {
       await axios.post('/api/auth/logout');
@@ -56,6 +68,7 @@ export const AuthProvider = ({ children }) => {
   const value = {
     user,
     login,
+    signup,
     logout,
     loading,
     isAuthenticated: !!user,
