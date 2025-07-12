@@ -8,9 +8,8 @@ const crypto = require('crypto');
 const pdfParse = require('pdf-parse');
 const mammoth = require('mammoth');
 
-const { validateDescopeSession, optionalDescopeSession } = require('./middleware/descope-auth');const app = express();
 const PORT = process.env.PORT || 3001;
-
+const app = express();
 // Minimal middleware setup as per simplified tech stack
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -114,21 +113,21 @@ let users = [
 app.post('/api/auth/login', async (req, res) => {
   try {
     const { email, password } = req.body;
-    
+
     if (!email || !password) {
       return res.status(400).json({ error: 'Email and password are required' });
     }
-    
+
     // Find user in memory store
     const user = users.find(u => u.email === email);
-    
+
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-    
+
     // Check password (first check if it's hashed, then plain text for backward compatibility)
     let isValidPassword = false;
-    
+
     if (user.password.startsWith('$2b$')) {
       // Password is hashed
       isValidPassword = await bcrypt.compare(password, user.password);
@@ -136,15 +135,15 @@ app.post('/api/auth/login', async (req, res) => {
       // Plain text password (for demo users)
       isValidPassword = password === user.password;
     }
-    
+
     if (!isValidPassword) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
-    
+
     req.session.userId = user.id;
     req.session.userRole = user.role;
-    
-    res.json({ 
+
+    res.json({
       message: 'Login successful',
       user: { id: user.id, email: user.email, role: user.role }
     });
@@ -158,36 +157,36 @@ app.post('/api/auth/login', async (req, res) => {
 app.post('/api/auth/signup', async (req, res) => {
   try {
     const { email, password, confirmPassword, name, role = 'student' } = req.body;
-    
+
     // Basic validation
     if (!email || !password || !confirmPassword || !name) {
       return res.status(400).json({ error: 'All fields are required' });
     }
-    
+
     if (password !== confirmPassword) {
       return res.status(400).json({ error: 'Passwords do not match' });
     }
-    
+
     if (password.length < 6) {
       return res.status(400).json({ error: 'Password must be at least 6 characters long' });
     }
-    
+
     // Email validation
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       return res.status(400).json({ error: 'Invalid email format' });
     }
-    
+
     // Check if user already exists in memory store
     const existingUser = users.find(u => u.email === email);
     if (existingUser) {
       return res.status(409).json({ error: 'User with this email already exists' });
     }
-    
+
     // Hash password
     const saltRounds = 10;
     const hashedPassword = await bcrypt.hash(password, saltRounds);
-    
+
     // Create new user in memory store
     const newUser = {
       id: users.length + 1,
@@ -196,18 +195,18 @@ app.post('/api/auth/signup', async (req, res) => {
       role,
       name
     };
-    
+
     users.push(newUser);
-    
+
     console.log('New user created:', { email, role, name });
-    
-    res.status(201).json({ 
+
+    res.status(201).json({
       message: 'Account created successfully',
-      user: { 
-        id: newUser.id, 
-        email: newUser.email, 
+      user: {
+        id: newUser.id,
+        email: newUser.email,
         name: newUser.name,
-        role: newUser.role 
+        role: newUser.role
       }
     });
   } catch (error) {
@@ -220,18 +219,18 @@ app.get('/api/auth/check', async (req, res) => {
   if (req.session.userId) {
     try {
       const user = users.find(u => u.id === req.session.userId);
-      
+
       if (!user) {
         req.session.destroy();
         return res.status(401).json({ error: 'Not authenticated' });
       }
-      
-      res.json({ 
-        user: { 
-          id: user.id, 
+
+      res.json({
+        user: {
+          id: user.id,
           email: user.email,
-          role: user.role 
-        } 
+          role: user.role
+        }
       });
     } catch (error) {
       console.error('Auth check error:', error);
@@ -297,7 +296,7 @@ app.get('/api/students', requireAuth, async (req, res) => {
         skill_levels: 'intermediate, beginner, intermediate, beginner, intermediate'
       }
     ];
-    
+
     res.json(mockStudents);
   } catch (error) {
     console.error('Get students error:', error);
@@ -310,20 +309,20 @@ app.put('/api/students/:id', requireAuth, async (req, res) => {
   try {
     const { name, email, year_grade, major_focus, short_term_goals, long_term_goals, interests, extracurricular, skills } = req.body;
     const studentId = req.params.id;
-    
+
     const conn = await pool.getConnection();
     await conn.beginTransaction();
-    
+
     try {
       // Update student basic info
       await conn.query(
         'UPDATE students SET name = ?, email = ?, year_grade = ?, major_focus = ?, short_term_goals = ?, long_term_goals = ?, interests = ?, extracurricular = ? WHERE id = ?',
         [name, email, year_grade, major_focus, short_term_goals, long_term_goals, interests, extracurricular, studentId]
       );
-      
+
       // Delete existing skills
       await conn.query('DELETE FROM student_skills WHERE student_id = ?', [studentId]);
-      
+
       // Insert updated skills
       if (skills && skills.length > 0) {
         for (const skill of skills) {
@@ -333,10 +332,10 @@ app.put('/api/students/:id', requireAuth, async (req, res) => {
           );
         }
       }
-      
+
       await conn.commit();
       conn.release();
-      
+
       res.json({ message: 'Student updated successfully' });
     } catch (error) {
       await conn.rollback();
@@ -353,26 +352,26 @@ app.put('/api/students/:id', requireAuth, async (req, res) => {
 app.delete('/api/students/:id', requireAuth, async (req, res) => {
   try {
     const studentId = req.params.id;
-    
+
     const conn = await pool.getConnection();
     await conn.beginTransaction();
-    
+
     try {
       // Delete related skills (cascade will handle this, but being explicit)
       await conn.query('DELETE FROM student_skills WHERE student_id = ?', [studentId]);
-      
+
       // Delete student
       const result = await conn.query('DELETE FROM students WHERE id = ?', [studentId]);
-      
+
       if (result.affectedRows === 0) {
         await conn.rollback();
         conn.release();
         return res.status(404).json({ error: 'Student not found' });
       }
-      
+
       await conn.commit();
       conn.release();
-      
+
       res.json({ message: 'Student deleted successfully' });
     } catch (error) {
       await conn.rollback();
@@ -388,18 +387,18 @@ app.delete('/api/students/:id', requireAuth, async (req, res) => {
 app.post('/api/students', requireAuth, async (req, res) => {
   try {
     const { name, email, year_grade, major_focus, short_term_goals, long_term_goals, interests, extracurricular, skills } = req.body;
-    
+
     const conn = await pool.getConnection();
     await conn.beginTransaction();
-    
+
     try {
       const result = await conn.query(
         'INSERT INTO students (name, email, year_grade, major_focus, short_term_goals, long_term_goals, interests, extracurricular) VALUES (?, ?, ?, ?, ?, ?, ?, ?)',
         [name, email, year_grade, major_focus, short_term_goals, long_term_goals, interests, extracurricular]
       );
-      
+
       const studentId = result.insertId;
-      
+
       if (skills && skills.length > 0) {
         for (const skill of skills) {
           await conn.query(
@@ -408,10 +407,10 @@ app.post('/api/students', requireAuth, async (req, res) => {
           );
         }
       }
-      
+
       await conn.commit();
       conn.release();
-      
+
       res.json({ id: studentId, message: 'Student created successfully' });
     } catch (error) {
       await conn.rollback();
@@ -430,11 +429,11 @@ app.get('/api/students/:id', requireAuth, async (req, res) => {
     const students = await conn.query('SELECT * FROM students WHERE id = ?', [req.params.id]);
     const skills = await conn.query('SELECT * FROM student_skills WHERE student_id = ?', [req.params.id]);
     conn.release();
-    
+
     if (students.length === 0) {
       return res.status(404).json({ error: 'Student not found' });
     }
-    
+
     res.json({ ...students[0], skills });
   } catch (error) {
     console.error('Get student error:', error);
@@ -448,33 +447,33 @@ app.post('/api/students/:id/resume', requireAuth, upload.single('resume'), async
     if (!req.file) {
       return res.status(400).json({ error: 'No file uploaded' });
     }
-    
+
     const studentId = req.params.id;
     const fileHash = crypto.createHash('sha256').update(req.file.buffer).digest('hex');
-    
+
     const conn = await pool.getConnection();
     await conn.beginTransaction();
-    
+
     try {
       // Check for existing versions
       const existingFiles = await conn.query(
         'SELECT MAX(version) as max_version FROM uploaded_files WHERE student_id = ?',
         [studentId]
       );
-      
+
       const nextVersion = (existingFiles[0].max_version || 0) + 1;
-      
+
       // Store the resume file
       const result = await conn.query(
         'INSERT INTO uploaded_files (student_id, file_name, file_type, file_size, file_data, file_hash, version) VALUES (?, ?, ?, ?, ?, ?, ?)',
         [studentId, req.file.originalname, req.file.mimetype, req.file.size, req.file.buffer, fileHash, nextVersion]
       );
-      
+
       // Parse resume content
       let parsedData = null;
       try {
         parsedData = await parseResumeContent(req.file.buffer, req.file.mimetype);
-        
+
         // Auto-populate student profile with extracted data
         if (parsedData) {
           await autoPopulateFromResume(conn, studentId, parsedData);
@@ -483,11 +482,11 @@ app.post('/api/students/:id/resume', requireAuth, upload.single('resume'), async
         console.warn('Resume parsing failed:', parseError);
         // Continue with upload even if parsing fails
       }
-      
+
       await conn.commit();
       conn.release();
-      
-      res.json({ 
+
+      res.json({
         id: result.insertId,
         message: 'Resume uploaded successfully',
         version: nextVersion,
@@ -517,7 +516,7 @@ app.get('/api/students/:id/resumes', requireAuth, async (req, res) => {
       ORDER BY version DESC
     `, [req.params.id]);
     conn.release();
-    
+
     res.json(resumes);
   } catch (error) {
     console.error('Get resumes error:', error);
@@ -534,11 +533,11 @@ app.get('/api/resumes/:id/download', requireAuth, async (req, res) => {
       [req.params.id]
     );
     conn.release();
-    
+
     if (files.length === 0) {
       return res.status(404).json({ error: 'File not found' });
     }
-    
+
     const file = files[0];
     res.setHeader('Content-Type', file.file_type);
     res.setHeader('Content-Disposition', `attachment; filename="${file.file_name}"`);
@@ -552,7 +551,7 @@ app.get('/api/resumes/:id/download', requireAuth, async (req, res) => {
 // Parse resume content based on file type
 async function parseResumeContent(buffer, mimeType) {
   let text = '';
-  
+
   try {
     if (mimeType === 'application/pdf') {
       const pdfData = await pdfParse(buffer);
@@ -563,7 +562,7 @@ async function parseResumeContent(buffer, mimeType) {
     } else {
       throw new Error('Unsupported file type');
     }
-    
+
     // Extract structured information from text
     return extractResumeData(text);
   } catch (error) {
@@ -581,9 +580,9 @@ function extractResumeData(text) {
     contact: {},
     summary: ''
   };
-  
+
   const lines = text.split('\n').map(line => line.trim()).filter(line => line.length > 0);
-  
+
   // Common skill keywords to look for
   const skillKeywords = [
     'javascript', 'python', 'java', 'react', 'node', 'sql', 'html', 'css',
@@ -593,7 +592,7 @@ function extractResumeData(text) {
     'communication', 'leadership', 'teamwork', 'problem solving',
     'project management', 'analytical', 'creative', 'organizational'
   ];
-  
+
   // Extract skills
   const skillsSection = findSectionText(text, ['skills', 'technical skills', 'competencies']);
   if (skillsSection) {
@@ -603,7 +602,7 @@ function extractResumeData(text) {
       }
     }
   }
-  
+
   // Also scan entire document for skills
   const lowerText = text.toLowerCase();
   for (const keyword of skillKeywords) {
@@ -611,18 +610,18 @@ function extractResumeData(text) {
       data.skills.push(keyword);
     }
   }
-  
+
   // Extract contact information
   const emailMatch = text.match(/\b[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Z|a-z]{2,}\b/);
   if (emailMatch) {
     data.contact.email = emailMatch[0];
   }
-  
+
   const phoneMatch = text.match(/\b\d{3}[-.]?\d{3}[-.]?\d{4}\b/);
   if (phoneMatch) {
     data.contact.phone = phoneMatch[0];
   }
-  
+
   // Extract experience (simplified)
   const experienceSection = findSectionText(text, ['experience', 'work experience', 'employment']);
   if (experienceSection) {
@@ -635,7 +634,7 @@ function extractResumeData(text) {
       });
     }
   }
-  
+
   // Extract education
   const educationSection = findSectionText(text, ['education', 'academic background']);
   if (educationSection) {
@@ -647,14 +646,14 @@ function extractResumeData(text) {
       });
     }
   }
-  
+
   return data;
 }
 
 // Find text content of a specific section
 function findSectionText(text, sectionHeaders) {
   const lowerText = text.toLowerCase();
-  
+
   for (const header of sectionHeaders) {
     const headerIndex = lowerText.indexOf(header.toLowerCase());
     if (headerIndex !== -1) {
@@ -662,11 +661,11 @@ function findSectionText(text, sectionHeaders) {
       const afterHeader = text.substring(headerIndex + header.length);
       const nextSectionMatch = afterHeader.match(/\n\s*[A-Z][A-Z\s]{2,}:/);
       const sectionEnd = nextSectionMatch ? nextSectionMatch.index : Math.min(afterHeader.length, 500);
-      
+
       return afterHeader.substring(0, sectionEnd);
     }
   }
-  
+
   return null;
 }
 
@@ -676,12 +675,12 @@ async function autoPopulateFromResume(conn, studentId, resumeData) {
     // Get current student data for comparison
     const currentStudent = await conn.query('SELECT * FROM students WHERE id = ?', [studentId]);
     const currentSkills = await conn.query('SELECT skill_name FROM student_skills WHERE student_id = ?', [studentId]);
-    
+
     if (currentStudent.length === 0) return;
-    
+
     const student = currentStudent[0];
     const existingSkills = currentSkills.map(s => s.skill_name.toLowerCase());
-    
+
     // Add new skills from resume
     for (const skill of resumeData.skills) {
       if (!existingSkills.includes(skill.toLowerCase())) {
@@ -691,10 +690,10 @@ async function autoPopulateFromResume(conn, studentId, resumeData) {
         );
       }
     }
-    
+
     // Store discrepancies for review
     const discrepancies = [];
-    
+
     // Check for email discrepancies
     if (resumeData.contact.email && student.email !== resumeData.contact.email) {
       discrepancies.push({
@@ -703,7 +702,7 @@ async function autoPopulateFromResume(conn, studentId, resumeData) {
         resume_value: resumeData.contact.email
       });
     }
-    
+
     // Check for skill discrepancies (skills in profile but not in resume)
     const resumeSkillsLower = resumeData.skills.map(s => s.toLowerCase());
     for (const existingSkill of existingSkills) {
@@ -715,7 +714,7 @@ async function autoPopulateFromResume(conn, studentId, resumeData) {
         });
       }
     }
-    
+
     // Store discrepancies for later review
     if (discrepancies.length > 0) {
       await conn.query(
@@ -723,7 +722,7 @@ async function autoPopulateFromResume(conn, studentId, resumeData) {
         [studentId, JSON.stringify(discrepancies)]
       );
     }
-    
+
   } catch (error) {
     console.error('Auto-populate from resume error:', error);
     throw error;
@@ -768,7 +767,7 @@ app.get('/api/surveys', requireAuth, async (req, res) => {
         unique_responses: 15
       }
     ];
-    
+
     res.json(mockSurveys);
   } catch (error) {
     console.error('Get surveys error:', error);
@@ -780,39 +779,39 @@ app.post('/api/surveys', requireAuth, async (req, res) => {
   let conn;
   try {
     const { title, description, questions } = req.body;
-    
+
     // Validation
     if (!title || !title.trim()) {
       return res.status(400).json({ error: 'Survey title is required' });
     }
-    
+
     if (!questions || !Array.isArray(questions) || questions.length === 0) {
       return res.status(400).json({ error: 'Survey must have at least one question' });
     }
-    
+
     // Validate each question structure
     for (const question of questions) {
       if (!question.id || !question.text || !question.type) {
         return res.status(400).json({ error: 'Invalid question structure - each question must have id, text, and type' });
       }
-      
+
       // Validate question types
       const validTypes = ['text', 'multiple_choice', 'checkboxes', 'rating'];
       if (!validTypes.includes(question.type)) {
         return res.status(400).json({ error: `Invalid question type: ${question.type}` });
       }
     }
-    
+
     if (!req.session.userId) {
       return res.status(401).json({ error: 'User session invalid' });
     }
-    
+
     conn = await pool.getConnection();
     const result = await conn.query(
       'INSERT INTO surveys (title, description, questions, created_by) VALUES (?, ?, ?, ?)',
       [title, description, JSON.stringify(questions), req.session.userId]
     );
-    
+
     const responseData = { id: result.insertId, message: 'Survey created successfully' };
     res.json(convertBigIntToNumber(responseData));
   } catch (error) {
@@ -828,11 +827,11 @@ app.get('/api/surveys/:id', requireAuth, async (req, res) => {
     const conn = await pool.getConnection();
     const surveys = await conn.query('SELECT * FROM surveys WHERE id = ?', [req.params.id]);
     conn.release();
-    
+
     if (surveys.length === 0) {
       return res.status(404).json({ error: 'Survey not found' });
     }
-    
+
     const survey = surveys[0];
     survey.questions = JSON.parse(survey.questions);
     res.json(survey);
@@ -845,18 +844,18 @@ app.get('/api/surveys/:id', requireAuth, async (req, res) => {
 app.put('/api/surveys/:id', requireAuth, async (req, res) => {
   try {
     const { title, description, questions, is_active } = req.body;
-    
+
     const conn = await pool.getConnection();
     const result = await conn.query(
       'UPDATE surveys SET title = ?, description = ?, questions = ?, is_active = ? WHERE id = ? AND created_by = ?',
       [title, description, JSON.stringify(questions), is_active, req.params.id, req.session.userId]
     );
     conn.release();
-    
+
     if (result.affectedRows === 0) {
       return res.status(404).json({ error: 'Survey not found or not authorized' });
     }
-    
+
     res.json({ message: 'Survey updated successfully' });
   } catch (error) {
     console.error('Update survey error:', error);
@@ -869,23 +868,23 @@ app.post('/api/surveys/:id/responses', requireAuth, async (req, res) => {
   try {
     const { student_id, responses } = req.body;
     const surveyId = req.params.id;
-    
+
     const conn = await pool.getConnection();
     await conn.beginTransaction();
-    
+
     try {
       // Insert or update survey response
       await conn.query(
         'INSERT INTO survey_responses (survey_id, student_id, responses) VALUES (?, ?, ?) ON DUPLICATE KEY UPDATE responses = VALUES(responses), completed_at = CURRENT_TIMESTAMP',
         [surveyId, student_id, JSON.stringify(responses)]
       );
-      
+
       // Auto-populate student profile based on survey responses
       await autoPopulateStudentProfile(conn, student_id, responses);
-      
+
       await conn.commit();
       conn.release();
-      
+
       res.json({ message: 'Survey response saved successfully' });
     } catch (error) {
       await conn.rollback();
@@ -909,12 +908,12 @@ app.get('/api/surveys/:id/responses', requireAuth, async (req, res) => {
       ORDER BY sr.completed_at DESC
     `, [req.params.id]);
     conn.release();
-    
+
     // Parse responses JSON
     responses.forEach(response => {
       response.responses = JSON.parse(response.responses);
     });
-    
+
     res.json(responses);
   } catch (error) {
     console.error('Get survey responses error:', error);
@@ -932,12 +931,12 @@ app.get('/api/survey-templates', requireAuth, async (req, res) => {
       ORDER BY template_type, name
     `, [req.session.userId]);
     conn.release();
-    
+
     // Parse questions JSON
     templates.forEach(template => {
       template.questions = JSON.parse(template.questions);
     });
-    
+
     res.json(templates);
   } catch (error) {
     console.error('Get survey templates error:', error);
@@ -948,14 +947,14 @@ app.get('/api/survey-templates', requireAuth, async (req, res) => {
 app.post('/api/survey-templates', requireAuth, async (req, res) => {
   try {
     const { name, template_type, questions } = req.body;
-    
+
     const conn = await pool.getConnection();
     const result = await conn.query(
       'INSERT INTO survey_templates (name, template_type, questions, created_by) VALUES (?, ?, ?, ?)',
       [name, template_type, JSON.stringify(questions), req.session.userId]
     );
     conn.release();
-    
+
     res.json({ id: result.insertId, message: 'Survey template created successfully' });
   } catch (error) {
     console.error('Create survey template error:', error);
@@ -966,11 +965,11 @@ app.post('/api/survey-templates', requireAuth, async (req, res) => {
 // Auto-populate student profile from survey responses
 async function autoPopulateStudentProfile(conn, studentId, responses) {
   const updates = {};
-  
+
   // Map common survey questions to student profile fields
   for (const [questionId, answer] of Object.entries(responses)) {
     const lowerAnswer = String(answer).toLowerCase();
-    
+
     if (questionId.includes('goal') || questionId.includes('objective')) {
       if (questionId.includes('short') || questionId.includes('current')) {
         updates.short_term_goals = answer;
@@ -992,7 +991,7 @@ async function autoPopulateStudentProfile(conn, studentId, responses) {
       }
     }
   }
-  
+
   // Update student profile with survey data
   if (Object.keys(updates).length > 0) {
     const fields = Object.keys(updates).map(field => `${field} = ?`).join(', ');
@@ -1008,7 +1007,7 @@ async function autoPopulateStudentProfile(conn, studentId, responses) {
 app.get('/api/analytics/overview', requireAuth, async (req, res) => {
   try {
     const conn = await pool.getConnection();
-    
+
     // Get class-wide statistics
     const totalStudents = await conn.query('SELECT COUNT(*) as count FROM students');
     const totalSkills = await conn.query('SELECT COUNT(DISTINCT skill_name) as count FROM student_skills');
@@ -1019,7 +1018,7 @@ app.get('/api/analytics/overview', requireAuth, async (req, res) => {
         GROUP BY student_id
       ) as skill_counts
     `);
-    
+
     // Skill distribution
     const skillDistribution = await conn.query(`
       SELECT skill_name, COUNT(*) as student_count, 
@@ -1029,7 +1028,7 @@ app.get('/api/analytics/overview', requireAuth, async (req, res) => {
       ORDER BY student_count DESC 
       LIMIT 20
     `);
-    
+
     // Goal analysis
     const goalStats = await conn.query(`
       SELECT 
@@ -1037,7 +1036,7 @@ app.get('/api/analytics/overview', requireAuth, async (req, res) => {
         COUNT(CASE WHEN long_term_goals IS NOT NULL AND long_term_goals != '' THEN 1 END) as students_with_long_goals
       FROM students
     `);
-    
+
     // Interest analysis
     const interestStats = await conn.query(`
       SELECT interests, COUNT(*) as count 
@@ -1047,7 +1046,7 @@ app.get('/api/analytics/overview', requireAuth, async (req, res) => {
       ORDER BY count DESC 
       LIMIT 10
     `);
-    
+
     // Survey completion rates
     const surveyStats = await conn.query(`
       SELECT s.title, COUNT(sr.id) as responses, s.is_active
@@ -1056,9 +1055,9 @@ app.get('/api/analytics/overview', requireAuth, async (req, res) => {
       GROUP BY s.id, s.title, s.is_active
       ORDER BY responses DESC
     `);
-    
+
     conn.release();
-    
+
     const responseData = {
       overview: {
         total_students: totalStudents[0].count,
@@ -1070,7 +1069,7 @@ app.get('/api/analytics/overview', requireAuth, async (req, res) => {
       interest_stats: interestStats,
       survey_stats: surveyStats
     };
-    
+
     res.json(convertBigIntToNumber(responseData));
   } catch (error) {
     console.error('Analytics overview error:', error);
@@ -1081,14 +1080,14 @@ app.get('/api/analytics/overview', requireAuth, async (req, res) => {
 app.get('/api/analytics/skills', requireAuth, async (req, res) => {
   try {
     const conn = await pool.getConnection();
-    
+
     // Detailed skill analytics
     const skillsByLevel = await conn.query(`
       SELECT proficiency_level, COUNT(*) as count
       FROM student_skills
       GROUP BY proficiency_level
     `);
-    
+
     const topSkills = await conn.query(`
       SELECT skill_name, COUNT(*) as student_count,
              COUNT(CASE WHEN proficiency_level = 'beginner' THEN 1 END) as beginner_count,
@@ -1099,7 +1098,7 @@ app.get('/api/analytics/skills', requireAuth, async (req, res) => {
       ORDER BY student_count DESC
       LIMIT 15
     `);
-    
+
     const skillTrends = await conn.query(`
       SELECT DATE(ss.created_at) as date, COUNT(*) as skills_added
       FROM student_skills ss
@@ -1107,15 +1106,15 @@ app.get('/api/analytics/skills', requireAuth, async (req, res) => {
       GROUP BY DATE(ss.created_at)
       ORDER BY date
     `);
-    
+
     conn.release();
-    
+
     const responseData = {
       skills_by_level: skillsByLevel,
       top_skills: topSkills,
       skill_trends: skillTrends
     };
-    
+
     res.json(convertBigIntToNumber(responseData));
   } catch (error) {
     console.error('Skills analytics error:', error);
@@ -1127,7 +1126,7 @@ app.get('/api/analytics/students/:id', requireAuth, async (req, res) => {
   try {
     const studentId = req.params.id;
     const conn = await pool.getConnection();
-    
+
     // Individual student summary
     const student = await conn.query(`
       SELECT s.*, 
@@ -1141,11 +1140,11 @@ app.get('/api/analytics/students/:id', requireAuth, async (req, res) => {
       WHERE s.id = ?
       GROUP BY s.id
     `, [studentId]);
-    
+
     if (student.length === 0) {
       return res.status(404).json({ error: 'Student not found' });
     }
-    
+
     // Student's skills breakdown
     const skillsBreakdown = await conn.query(`
       SELECT skill_name, proficiency_level, created_at
@@ -1153,7 +1152,7 @@ app.get('/api/analytics/students/:id', requireAuth, async (req, res) => {
       WHERE student_id = ?
       ORDER BY created_at DESC
     `, [studentId]);
-    
+
     // Survey responses summary
     const surveyResponses = await conn.query(`
       SELECT s.title, sr.completed_at
@@ -1162,16 +1161,16 @@ app.get('/api/analytics/students/:id', requireAuth, async (req, res) => {
       WHERE sr.student_id = ?
       ORDER BY sr.completed_at DESC
     `, [studentId]);
-    
+
     // Goal progress (simplified tracking)
     const goalProgress = await conn.query(`
       SELECT short_term_goals, long_term_goals, updated_at
       FROM students
       WHERE id = ?
     `, [studentId]);
-    
+
     conn.release();
-    
+
     res.json({
       student: student[0],
       skills_breakdown: skillsBreakdown,
@@ -1187,7 +1186,7 @@ app.get('/api/analytics/students/:id', requireAuth, async (req, res) => {
 app.get('/api/analytics/goals', requireAuth, async (req, res) => {
   try {
     const conn = await pool.getConnection();
-    
+
     // Goal alignment analysis
     const shortTermGoals = await conn.query(`
       SELECT short_term_goals as goal, COUNT(*) as count
@@ -1197,7 +1196,7 @@ app.get('/api/analytics/goals', requireAuth, async (req, res) => {
       ORDER BY count DESC
       LIMIT 10
     `);
-    
+
     const longTermGoals = await conn.query(`
       SELECT long_term_goals as goal, COUNT(*) as count
       FROM students 
@@ -1206,7 +1205,7 @@ app.get('/api/analytics/goals', requireAuth, async (req, res) => {
       ORDER BY count DESC
       LIMIT 10
     `);
-    
+
     // Goal completion tracking (based on profile updates)
     const goalUpdates = await conn.query(`
       SELECT DATE(updated_at) as date, COUNT(*) as updates
@@ -1216,15 +1215,15 @@ app.get('/api/analytics/goals', requireAuth, async (req, res) => {
       GROUP BY DATE(updated_at)
       ORDER BY date
     `);
-    
+
     conn.release();
-    
+
     const responseData = {
       short_term_goals: shortTermGoals,
       long_term_goals: longTermGoals,
       goal_updates: goalUpdates
     };
-    
+
     res.json(convertBigIntToNumber(responseData));
   } catch (error) {
     console.error('Goals analytics error:', error);
@@ -1237,7 +1236,7 @@ app.get('/api/students/search', requireAuth, async (req, res) => {
   try {
     const { query, skills, interests, goals, year_grade, major_focus } = req.query;
     const conn = await pool.getConnection();
-    
+
     let sql = `
       SELECT DISTINCT s.*, 
              GROUP_CONCAT(DISTINCT sk.skill_name) as skill_names,
@@ -1246,9 +1245,9 @@ app.get('/api/students/search', requireAuth, async (req, res) => {
       LEFT JOIN student_skills sk ON s.id = sk.student_id
       WHERE 1=1
     `;
-    
+
     const params = [];
-    
+
     // General text search across multiple fields
     if (query) {
       sql += ` AND (
@@ -1263,7 +1262,7 @@ app.get('/api/students/search', requireAuth, async (req, res) => {
       const searchTerm = `%${query}%`;
       params.push(searchTerm, searchTerm, searchTerm, searchTerm, searchTerm, searchTerm, searchTerm);
     }
-    
+
     // Specific skill filter
     if (skills) {
       const skillArray = skills.split(',').map(s => s.trim());
@@ -1271,36 +1270,36 @@ app.get('/api/students/search', requireAuth, async (req, res) => {
       sql += ` AND sk.skill_name IN (${skillPlaceholders})`;
       params.push(...skillArray);
     }
-    
+
     // Interests filter
     if (interests) {
       sql += ` AND s.interests LIKE ?`;
       params.push(`%${interests}%`);
     }
-    
+
     // Goals filter
     if (goals) {
       sql += ` AND (s.short_term_goals LIKE ? OR s.long_term_goals LIKE ?)`;
       params.push(`%${goals}%`, `%${goals}%`);
     }
-    
+
     // Year/Grade filter
     if (year_grade) {
       sql += ` AND s.year_grade = ?`;
       params.push(year_grade);
     }
-    
+
     // Major/Focus filter
     if (major_focus) {
       sql += ` AND s.major_focus LIKE ?`;
       params.push(`%${major_focus}%`);
     }
-    
+
     sql += ` GROUP BY s.id ORDER BY s.name`;
-    
+
     const results = await conn.query(sql, params);
     conn.release();
-    
+
     res.json(results);
   } catch (error) {
     console.error('Search error:', error);
@@ -1313,7 +1312,7 @@ app.post('/api/students/filter', requireAuth, async (req, res) => {
   try {
     const { filters, sortBy, groupBy } = req.body;
     const conn = await pool.getConnection();
-    
+
     let sql = `
       SELECT DISTINCT s.*, 
              GROUP_CONCAT(DISTINCT sk.skill_name) as skill_names,
@@ -1323,41 +1322,41 @@ app.post('/api/students/filter', requireAuth, async (req, res) => {
       LEFT JOIN student_skills sk ON s.id = sk.student_id
       WHERE 1=1
     `;
-    
+
     const params = [];
-    
+
     // Apply multiple filters
     if (filters.skills && filters.skills.length > 0) {
       const skillPlaceholders = filters.skills.map(() => '?').join(',');
       sql += ` AND sk.skill_name IN (${skillPlaceholders})`;
       params.push(...filters.skills);
     }
-    
+
     if (filters.skill_levels && filters.skill_levels.length > 0) {
       const levelPlaceholders = filters.skill_levels.map(() => '?').join(',');
       sql += ` AND sk.proficiency_level IN (${levelPlaceholders})`;
       params.push(...filters.skill_levels);
     }
-    
+
     if (filters.year_grades && filters.year_grades.length > 0) {
       const yearPlaceholders = filters.year_grades.map(() => '?').join(',');
       sql += ` AND s.year_grade IN (${yearPlaceholders})`;
       params.push(...filters.year_grades);
     }
-    
+
     if (filters.majors && filters.majors.length > 0) {
       const majorConditions = filters.majors.map(() => 's.major_focus LIKE ?').join(' OR ');
       sql += ` AND (${majorConditions})`;
       params.push(...filters.majors.map(major => `%${major}%`));
     }
-    
+
     if (filters.min_skills) {
       sql += ` HAVING skill_count >= ?`;
       params.push(filters.min_skills);
     }
-    
+
     sql += ` GROUP BY s.id`;
-    
+
     // Apply sorting
     if (sortBy) {
       switch (sortBy) {
@@ -1374,9 +1373,9 @@ app.post('/api/students/filter', requireAuth, async (req, res) => {
           sql += ` ORDER BY s.name`;
       }
     }
-    
+
     const results = await conn.query(sql, params);
-    
+
     // Group results if requested
     let groupedResults = results;
     if (groupBy === 'major') {
@@ -1386,7 +1385,7 @@ app.post('/api/students/filter', requireAuth, async (req, res) => {
     } else if (groupBy === 'skills') {
       groupedResults = groupBySkillCount(results);
     }
-    
+
     conn.release();
     res.json(groupedResults);
   } catch (error) {
@@ -1400,7 +1399,7 @@ app.post('/api/students/form-teams', requireAuth, async (req, res) => {
   try {
     const { teamSize, criteria } = req.body;
     const conn = await pool.getConnection();
-    
+
     // Get all students with their skills
     const students = await conn.query(`
       SELECT s.id, s.name, s.major_focus, s.interests,
@@ -1410,10 +1409,10 @@ app.post('/api/students/form-teams', requireAuth, async (req, res) => {
       LEFT JOIN student_skills sk ON s.id = sk.student_id
       GROUP BY s.id
     `);
-    
+
     // Simple team formation algorithm
     const teams = formTeams(students, teamSize || 3, criteria);
-    
+
     conn.release();
     res.json({ teams, total_teams: teams.length });
   } catch (error) {
@@ -1426,13 +1425,13 @@ app.post('/api/students/form-teams', requireAuth, async (req, res) => {
 app.get('/api/students/filter-options', requireAuth, async (req, res) => {
   try {
     const conn = await pool.getConnection();
-    
+
     const skills = await conn.query(`
       SELECT DISTINCT skill_name as value, skill_name as label
       FROM student_skills
       ORDER BY skill_name
     `);
-    
+
     const skillLevels = await conn.query(`
       SELECT DISTINCT proficiency_level as value, proficiency_level as label
       FROM student_skills
@@ -1443,23 +1442,23 @@ app.get('/api/students/filter-options', requireAuth, async (req, res) => {
           WHEN 'advanced' THEN 3 
         END
     `);
-    
+
     const yearGrades = await conn.query(`
       SELECT DISTINCT year_grade as value, year_grade as label
       FROM students
       WHERE year_grade IS NOT NULL
       ORDER BY year_grade
     `);
-    
+
     const majors = await conn.query(`
       SELECT DISTINCT major_focus as value, major_focus as label
       FROM students
       WHERE major_focus IS NOT NULL
       ORDER BY major_focus
     `);
-    
+
     conn.release();
-    
+
     res.json({
       skills,
       skill_levels: skillLevels,
@@ -1491,7 +1490,7 @@ function groupBySkillCount(results) {
     'Medium (3-4 skills)': [],
     'Low (1-2 skills)': []
   };
-  
+
   results.forEach(student => {
     const skillCount = student.skill_count || 0;
     if (skillCount >= 5) {
@@ -1502,30 +1501,30 @@ function groupBySkillCount(results) {
       grouped['Low (1-2 skills)'].push(student);
     }
   });
-  
+
   return grouped;
 }
 
 function formTeams(students, teamSize, criteria) {
   const teams = [];
   const usedStudents = new Set();
-  
+
   for (const student of students) {
     if (usedStudents.has(student.id)) continue;
-    
+
     const team = [student];
     usedStudents.add(student.id);
-    
+
     // Find complementary team members
     for (const candidate of students) {
       if (usedStudents.has(candidate.id) || team.length >= teamSize) continue;
-      
+
       if (isComplementary(team, candidate, criteria)) {
         team.push(candidate);
         usedStudents.add(candidate.id);
       }
     }
-    
+
     teams.push({
       id: teams.length + 1,
       members: team,
@@ -1534,7 +1533,7 @@ function formTeams(students, teamSize, criteria) {
       diversity_score: calculateDiversityScore(team)
     });
   }
-  
+
   return teams;
 }
 
@@ -1545,20 +1544,20 @@ function isComplementary(team, candidate, criteria) {
       member.skills.split(',').forEach(skill => teamSkills.add(skill.trim()));
     }
   });
-  
-  const candidateSkills = candidate.skills ? 
+
+  const candidateSkills = candidate.skills ?
     candidate.skills.split(',').map(s => s.trim()) : [];
-  
+
   // Check for skill complementarity
   const hasNewSkills = candidateSkills.some(skill => !teamSkills.has(skill));
-  
+
   // Check for major diversity if specified
   let majorDiversity = true;
   if (criteria?.diverse_majors) {
     const teamMajors = team.map(m => m.major_focus);
     majorDiversity = !teamMajors.includes(candidate.major_focus);
   }
-  
+
   return hasNewSkills && majorDiversity;
 }
 
@@ -1585,11 +1584,11 @@ app.get('/api/export/:format', requireAuth, async (req, res) => {
     if (!['csv', 'json'].includes(format)) {
       return res.status(400).json({ error: 'Format must be csv or json' });
     }
-    
+
     const conn = await pool.getConnection();
     const students = await conn.query('SELECT * FROM students');
     conn.release();
-    
+
     if (format === 'json') {
       res.setHeader('Content-Type', 'application/json');
       res.setHeader('Content-Disposition', 'attachment; filename=students.json');
@@ -1608,22 +1607,19 @@ app.get('/api/export/:format', requireAuth, async (req, res) => {
 
 function convertToCSV(data) {
   if (!data.length) return '';
-  
+
   const headers = Object.keys(data[0]);
   const csvHeaders = headers.join(',');
-  const csvRows = data.map(row => 
+  const csvRows = data.map(row =>
     headers.map(header => {
       const value = row[header];
       return typeof value === 'string' ? `"${value.replace(/"/g, '""')}"` : value;
     }).join(',')
   );
-  
+
   return [csvHeaders, ...csvRows].join('\n');
 }
 
-// Add Descope authentication routes
-const authRoutes = require('./routes/auth');
-app.use('/api/auth-descope', authRoutes);
 // Catch-all handler for React app
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, '../frontend/build/index.html'));
